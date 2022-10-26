@@ -9,20 +9,23 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class TalkModule_stepDefinitions {
 
     DashboardPage dashboardPage = new DashboardPage();
     TalkModulePage talkModulePage = new TalkModulePage();
     Faker faker = new Faker();
-    String groupName = faker.ancient().god();
+    String groupName = faker.dune().planet();
 
-    JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
-
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
 
     @Given("user enters the talk module successfully")
     public void user_enters_the_talk_module_successfully() {
@@ -56,8 +59,7 @@ public class TalkModule_stepDefinitions {
             eachParticipant.click();
         }
 
-
-        BrowserUtils.sleep(5);
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[@class='acli__content__line-one__title']")));
 
     }
 
@@ -66,7 +68,8 @@ public class TalkModule_stepDefinitions {
 
         talkModulePage.createConversationBtn.click();
 
-      //  js.executeScript("arguments[0].click();", talkModulePage.createConversationBtn);
+        BrowserUtils.sleep(5);
+
 
     }
 
