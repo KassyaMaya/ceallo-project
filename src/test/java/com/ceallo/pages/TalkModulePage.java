@@ -49,5 +49,17 @@ public class TalkModulePage {
     @FindBy(xpath = "//span[.='Employee105']")
     public WebElement employee105;
 
+    @FindBy (xpath = "//span[@class='acli__content__line-one__title']")
+    public WebElement newGroupChat;
+
+    @FindBy (xpath = "(//button[@class='icon action-item__menutoggle action-item__menutoggle--default-icon'])[1]")
+    public WebElement conversationSettings;
+
+    @FindBy(xpath = "//span[.='Delete conversation']")
+    public WebElement deleleteConversationOption;
+
+    @FindBy (xpath = "(//button[@aria-label='Participant settings'])[1]")
+    public WebElement participantsSettings;
+
 
 }
