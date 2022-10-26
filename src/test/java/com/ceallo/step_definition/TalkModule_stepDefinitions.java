@@ -11,6 +11,7 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 public class TalkModule_stepDefinitions {
@@ -19,6 +20,8 @@ public class TalkModule_stepDefinitions {
     TalkModulePage talkModulePage = new TalkModulePage();
     Faker faker = new Faker();
     String groupName = faker.ancient().god();
+
+    JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
 
 
     @Given("user enters the talk module successfully")
@@ -42,11 +45,19 @@ public class TalkModule_stepDefinitions {
     @When("user chooses participants")
     public void user_chooses_participants() {
 
-        talkModulePage.employee1.click();
-        talkModulePage.employee10.click();
-        talkModulePage.employee100.click();
-        talkModulePage.employee101.click();
+//        talkModulePage.employee1.click();
+//        talkModulePage.employee10.click();
+//        talkModulePage.employee100.click();
+//        talkModulePage.employee101.click();
 
+
+
+        for (WebElement eachParticipant : talkModulePage.listOfParticipants) {
+            eachParticipant.click();
+        }
+
+
+        BrowserUtils.sleep(5);
 
     }
 
@@ -55,12 +66,25 @@ public class TalkModule_stepDefinitions {
 
         talkModulePage.createConversationBtn.click();
 
+      //  js.executeScript("arguments[0].click();", talkModulePage.createConversationBtn);
+
     }
 
     @Then("user sees the new group chat")
     public void user_sees_the_new_group_chat() {
 
         Assert.assertTrue(talkModulePage.newGroupChat.isDisplayed());
+
+    }
+
+    //==========================================================
+
+    @When("user clicks the group chat")
+    public void user_clicks_the_group_chat() {
+        talkModulePage.newGroupChat.click();
+    }
+    @Then("participants are displayed on the menu bar")
+    public void participants_are_displayed_on_the_menu_bar() {
 
     }
 

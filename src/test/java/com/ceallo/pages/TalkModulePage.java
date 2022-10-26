@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class TalkModulePage {
 
     public TalkModulePage() {
@@ -24,7 +26,7 @@ public class TalkModulePage {
 
     @FindBy (xpath = "//button[@class='navigation__button navigation__button-right primary']")
     public WebElement createConversationBtn;
-
+/*
     @FindBy(xpath = "//span[.='Employee1']")
     public WebElement employee1;
 
@@ -49,6 +51,10 @@ public class TalkModulePage {
     @FindBy(xpath = "//span[.='Employee105']")
     public WebElement employee105;
 
+ */
+
+    @FindBy (xpath = "//li[@class='participant-row']")
+    public List<WebElement> listOfParticipants;
     @FindBy (xpath = "//span[@class='acli__content__line-one__title']")
     public WebElement newGroupChat;
 
