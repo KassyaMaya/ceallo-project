@@ -31,6 +31,7 @@ public class TalkModule_stepDefinitions {
 
     WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
 
+
     @Given("user enters the talk module successfully")
     public void user_enters_the_talk_module_successfully() {
         dashboardPage.talkModuleButton.click();
@@ -58,12 +59,9 @@ public class TalkModule_stepDefinitions {
 //        talkModulePage.employee101.click();
 
 
-
         for (WebElement eachParticipant : talkModulePage.listOfParticipants) {
             eachParticipant.click();
         }
-
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[@class='acli__content__line-one__title']")));
 
     }
 
@@ -72,6 +70,7 @@ public class TalkModule_stepDefinitions {
 
         talkModulePage.createConversationBtn.click();
 
+        // wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[@class='acli__content__line-one__title']")));
         BrowserUtils.sleep(5);
 
 
@@ -103,8 +102,54 @@ public class TalkModule_stepDefinitions {
             Assert.assertTrue(eachParticipant.isDisplayed());
 
         }
+    }
 
+//=======================================================
+
+
+    @Given("user is in a group chat")
+    public void user_is_in_a_group_chat() {
+        dashboardPage.talkModuleButton.click();
+        talkModulePage.newGroupChat.click();
+    }
+
+    @When("user clicks the participant's settings")
+    public void user_clicks_the_participant_s_settings() {
+        talkModulePage.participantsSettings.click();
+    }
+
+    @When("user clicks remove participant")
+    public void user_clicks_remove_participant() {
+        talkModulePage.removeParticipantBtn.click();
+    }
+
+    @Then("participant is removed from the chat")
+    public void participant_is_removed_from_the_chat() {
+        WebElement removeMessage = Driver.getDriver().findElement(By.xpath("//*[@id=\"message_573\"]/div/div[1]/div"));
+
+        Assert.assertTrue(removeMessage.isDisplayed());
+    }
+    //=========================================================
+    @When("user clicks the chat settings")
+    public void user_clicks_the_chat_settings() {
 
     }
 
+    @When("user clicks delete conversation option")
+    public void user_clicks_delete_conversation_option() {
+
+    }
+
+    @When("user confirms deletion of the chat")
+    public void user_confirms_deletion_of_the_chat() {
+
+    }
+
+    @Then("the chat is deleted")
+    public void the_chat_is_deleted() {
+
+    }
+
+
 }
+

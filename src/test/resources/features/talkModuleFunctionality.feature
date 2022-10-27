@@ -19,11 +19,27 @@ Feature: Talk Module Functionality
     And user clicks create conversation
     Then user sees the new group chat
 
-    @wip
+  @CEA-964
   Scenario: User can see the participants
     Given user enters the talk module successfully
     When user clicks the group chat
     Then participants are displayed on the menu bar
+
+  @CEA-966
+  Scenario: User as a moderator can remove any participant from the chat
+    Given user is in a group chat
+    When user clicks the participant's settings
+    And user clicks remove participant
+    Then participant is removed from the chat
+
+  @wip
+  Scenario: User can delete any group conversation
+    Given user enters the talk module successfully
+    When user clicks the chat settings
+    And user clicks delete conversation option
+    And user confirms deletion of the chat
+    Then the chat is deleted
+
 
 
     
