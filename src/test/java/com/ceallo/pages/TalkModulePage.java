@@ -74,5 +74,8 @@ public class TalkModulePage {
     @FindBy(xpath = "(//ul)[7]")
     public WebElement participantMenuBar;
 
+    @FindBy (xpath = "//*[@id=\"menu-rjvxp\"]/li[2]/button/span[2]")
+    public WebElement removeParticipantBtn;
+
 
 }
