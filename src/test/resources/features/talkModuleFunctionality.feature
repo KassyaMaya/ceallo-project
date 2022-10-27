@@ -37,3 +37,4 @@
       And user confirms deletion of the chat
       Then the chat is deleted
 
+
