@@ -53,6 +53,7 @@ public class TalkModulePage {
 
  */
 
+    // this list appears when you are choosing people ONLY while creating the chat
     @FindBy (xpath = "//li[@class='participant-row']")
     public List<WebElement> listOfParticipants;
     @FindBy (xpath = "//span[@class='acli__content__line-one__title']")
@@ -66,6 +67,12 @@ public class TalkModulePage {
 
     @FindBy (xpath = "(//button[@aria-label='Participant settings'])[1]")
     public WebElement participantsSettings;
+
+    @FindBy(xpath = "//li[@class='participant-row offline']")
+    public List<WebElement> participantsIntheChat;
+
+    @FindBy(xpath = "(//ul)[7]")
+    public WebElement participantMenuBar;
 
 
 }

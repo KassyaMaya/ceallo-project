@@ -18,6 +18,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class TalkModule_stepDefinitions {
 
     DashboardPage dashboardPage = new DashboardPage();
@@ -86,10 +90,21 @@ public class TalkModule_stepDefinitions {
     public void user_clicks_the_group_chat() {
         talkModulePage.newGroupChat.click();
     }
+
+
     @Then("participants are displayed on the menu bar")
     public void participants_are_displayed_on_the_menu_bar() {
 
-    }
+        // created this assertion to check if the chat menu bars is displayed
+        Assert.assertTrue(talkModulePage.participantMenuBar.isDisplayed());
 
+        // this assertion is checking if participants are displayed in the chat menu
+        for (WebElement eachParticipant : talkModulePage.participantsIntheChat) {
+            Assert.assertTrue(eachParticipant.isDisplayed());
+
+        }
+
+
+    }
 
 }
