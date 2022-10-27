@@ -26,32 +26,6 @@ public class TalkModulePage {
 
     @FindBy (xpath = "//button[@class='navigation__button navigation__button-right primary']")
     public WebElement createConversationBtn;
-/*
-    @FindBy(xpath = "//span[.='Employee1']")
-    public WebElement employee1;
-
-    @FindBy(xpath = "//span[.='Employee10']")
-    public WebElement employee10;
-
-    @FindBy(xpath = "//span[.='Employee100']")
-    public WebElement employee100;
-
-    @FindBy(xpath = "//span[.='Employee101']")
-    public WebElement employee101;
-
-    @FindBy(xpath = "//span[.='Employee102']")
-    public WebElement employee102;
-
-    @FindBy(xpath = "//span[.='Employee103']")
-    public WebElement employee103;
-
-    @FindBy(xpath = "//span[.='Employee104']")
-    public WebElement employee104;
-
-    @FindBy(xpath = "//span[.='Employee105']")
-    public WebElement employee105;
-
- */
 
     // this list appears when you are choosing people ONLY while creating the chat
     @FindBy (xpath = "//li[@class='participant-row']")
@@ -69,12 +43,12 @@ public class TalkModulePage {
     public WebElement participantsSettings;
 
     @FindBy(xpath = "//li[@class='participant-row offline']")
-    public List<WebElement> participantsIntheChat;
+    public List<WebElement> participantsInTheChat;
 
     @FindBy(xpath = "(//ul)[7]")
     public WebElement participantMenuBar;
 
-    @FindBy (xpath = "//*[@id=\"menu-rjvxp\"]/li[2]/button/span[2]")
+    @FindBy (xpath = "//span[.='Remove participant']")
     public WebElement removeParticipantBtn;
 
 

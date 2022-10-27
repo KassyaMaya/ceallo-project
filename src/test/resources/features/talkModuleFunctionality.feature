@@ -28,9 +28,12 @@ Feature: Talk Module Functionality
     And user clicks remove participant
     Then participant is removed from the chat
 
+
   @CEA-968
-  Scenario: user can delete any group conversation
+  Scenario: User can delete any group conversation
+    Given user enters the talk module successfully
     When user clicks the chat settings
     And user clicks delete conversation option
     And user confirms deletion of the chat
     Then the chat is deleted
+

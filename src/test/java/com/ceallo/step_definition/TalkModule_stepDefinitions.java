@@ -98,13 +98,13 @@ public class TalkModule_stepDefinitions {
         Assert.assertTrue(talkModulePage.participantMenuBar.isDisplayed());
 
         // this assertion is checking if participants are displayed in the chat menu
-        for (WebElement eachParticipant : talkModulePage.participantsIntheChat) {
+        for (WebElement eachParticipant : talkModulePage.participantsInTheChat) {
             Assert.assertTrue(eachParticipant.isDisplayed());
 
         }
     }
 
-//=======================================================
+    //=======================================================
 
 
     @Given("user is in a group chat")
