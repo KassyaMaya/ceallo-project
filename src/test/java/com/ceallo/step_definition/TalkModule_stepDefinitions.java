@@ -120,7 +120,7 @@ public class TalkModule_stepDefinitions {
 
     @When("user clicks remove participant")
     public void user_clicks_remove_participant() {
-        talkModulePage.removeParticipantBtn.click();
+       // talkModulePage.removeParticipantBtn.click();
     }
 
     @Then("participant is removed from the chat")
