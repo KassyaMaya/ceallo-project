@@ -42,14 +42,18 @@ public class TalkModulePage {
     @FindBy (xpath = "(//button[@aria-label='Participant settings'])[1]")
     public WebElement participantsSettings;
 
+    @FindBy (xpath = "(//button[@class='action-button focusable'])[2]")  // @FindBy (xpath = "//span[.='Remove participant']")
+    public WebElement removeParticipantBtn;
+
     @FindBy(xpath = "//li[@class='participant-row offline']")
     public List<WebElement> participantsInTheChat;
 
     @FindBy(xpath = "(//ul)[7]")
     public WebElement participantMenuBar;
 
-    @FindBy (xpath = "//span[.='Remove participant']")
-    public WebElement removeParticipantBtn;
+    @FindBy(xpath = "//button[@class='primary']")
+    public WebElement confirmationBtn;
+
 
 
 

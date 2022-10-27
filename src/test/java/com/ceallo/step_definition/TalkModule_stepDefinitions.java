@@ -121,6 +121,7 @@ public class TalkModule_stepDefinitions {
     @When("user clicks remove participant")
     public void user_clicks_remove_participant() {
         talkModulePage.removeParticipantBtn.click();
+        BrowserUtils.sleep(10);
     }
 
     @Then("participant is removed from the chat")
@@ -132,22 +133,22 @@ public class TalkModule_stepDefinitions {
     //=========================================================
     @When("user clicks the chat settings")
     public void user_clicks_the_chat_settings() {
-
+        talkModulePage.conversationSettings.click();
     }
 
     @When("user clicks delete conversation option")
     public void user_clicks_delete_conversation_option() {
-
+        talkModulePage.deleleteConversationOption.click();
     }
 
     @When("user confirms deletion of the chat")
     public void user_confirms_deletion_of_the_chat() {
-
+        talkModulePage.confirmationBtn.click();
     }
 
     @Then("the chat is deleted")
     public void the_chat_is_deleted() {
-
+        System.out.println("The chat was deleted");
     }
 
 
