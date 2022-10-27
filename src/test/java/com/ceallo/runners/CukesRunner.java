@@ -9,13 +9,14 @@ import org.junit.runner.RunWith;
 
         plugin = {
                 "html:target/cucumber-report.html",
-                "rerun:target/rerun.txt"
+                "rerun:target/rerun.txt",
+                "json:target/cucumber.json"
         },
 
         features = "src/test/resources/features",
         glue = "com/ceallo/step_definition",
         dryRun = false,
-        tags = ""
+        tags = "@CEA-955"
 
 )
 
