@@ -30,8 +30,8 @@ public class TalkModulePage {
     @FindBy (xpath = "//span[@class='acli__content__line-one__title']")
     public WebElement newGroupChat;
 
-    @FindBy (xpath = "//button[@aria-label='Conversation settings']")
-    public List<WebElement> conversationSettings;
+    @FindBy (xpath = "(//button[@aria-label='Conversation settings'])[1]")
+    public WebElement conversationSettings;
 
     @FindBy(xpath = "//span[.='Delete conversation']")
     public WebElement deleteConversationOption;

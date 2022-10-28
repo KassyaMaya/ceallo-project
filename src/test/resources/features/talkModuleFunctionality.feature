@@ -33,7 +33,7 @@
       Given user enters the talk module successfully
       When user clicks the chat settings
       And user clicks delete conversation option
-      And user confirms deletion of the chat
+      And user confirms deletion of the chat it
       Then the chat is deleted
 
 

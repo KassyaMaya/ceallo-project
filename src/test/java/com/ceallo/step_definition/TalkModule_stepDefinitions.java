@@ -5,6 +5,7 @@ import com.ceallo.pages.TalkModulePage;
 import com.ceallo.utilities.BrowserUtils;
 import com.ceallo.utilities.Driver;
 import com.github.javafaker.Faker;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -119,7 +120,7 @@ public class TalkModule_stepDefinitions {
 
     }
 
-    
+
     @Then("participant is removed from the chat")
     public void participant_is_removed_from_the_chat() {
 
@@ -142,27 +143,32 @@ public class TalkModule_stepDefinitions {
 
 
     }
+
+
     //=========================================================
     @When("user clicks the chat settings")
     public void user_clicks_the_chat_settings() {
-        for (WebElement eachSetting : talkModulePage.conversationSettings) {
-            eachSetting.click();
-        }
+        talkModulePage.conversationSettings.click();
     }
 
-    @When("user clicks delete conversation option")
-    public void user_clicks_delete_conversation_option() {
+    @And("user clicks delete conversation option")
+    public void userClicksDeleteConversationOption() {
         talkModulePage.deleteConversationOption.click();
     }
 
-    @When("user confirms deletion of the chat")
-    public void user_confirms_deletion_of_the_chat() {
+    @And("user confirms deletion of the chat it")
+    public void userConfirmsDeletionOfTheChatIt() {
         talkModulePage.confirmationBtn.click();
     }
 
     @Then("the chat is deleted")
     public void the_chat_is_deleted() {
+        WebElement firstChatInTheMenu = Driver.getDriver().findElement(By.xpath("(//span[@class='acli__content__line-one__title'])[1]"));
+        WebElement secondChatInTheMenu = Driver.getDriver().findElement(By.xpath("(//span[@class='acli__content__line-one__title'])[2]"));
 
+        String nameOfTheChat = firstChatInTheMenu.getText();
+
+        Assert.assertFalse(nameOfTheChat.equals(secondChatInTheMenu.getText()));
 
 
     }
