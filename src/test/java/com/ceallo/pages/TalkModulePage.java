@@ -39,8 +39,8 @@ public class TalkModulePage {
     @FindBy(xpath = "//span[.='Delete conversation']")
     public WebElement deleleteConversationOption;
 
-    @FindBy (xpath = "(//button[@aria-label='Participant settings'])[1]")
-    public WebElement participantsSettings;
+    @FindBy (xpath = "//button[@aria-label='Participant settings']")
+    public List <WebElement> participantsSettings;
 
     @FindBy (xpath = "(//button[@class='action-button focusable'])[2]")  // @FindBy (xpath = "//span[.='Remove participant']")
     public WebElement removeParticipantBtn;

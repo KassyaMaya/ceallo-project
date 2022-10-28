@@ -9,10 +9,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
@@ -111,24 +108,38 @@ public class TalkModule_stepDefinitions {
     public void user_is_in_a_group_chat() {
         dashboardPage.talkModuleButton.click();
         talkModulePage.newGroupChat.click();
+
+        BrowserUtils.sleep(3);
     }
 
-    @When("user clicks the participant's settings")
-    public void user_clicks_the_participant_s_settings() {
-        talkModulePage.participantsSettings.click();
+    @When("user clicks the participant's settings and clicks remove participant")
+    public void userClicksTheParticipantSSettingsAndClicksRemoveParticipant() {
+
+        for (WebElement eachParticipant : talkModulePage.participantsSettings) {
+            eachParticipant.click();
+            BrowserUtils.sleep(3);
+
+            talkModulePage.removeParticipantBtn.click();
+            BrowserUtils.sleep(3);
+
+        }
+
     }
 
-    @When("user clicks remove participant")
-    public void user_clicks_remove_participant() {
-        talkModulePage.removeParticipantBtn.click();
-        BrowserUtils.sleep(10);
-    }
-
+    
     @Then("participant is removed from the chat")
     public void participant_is_removed_from_the_chat() {
-        WebElement removeMessage = Driver.getDriver().findElement(By.xpath("//*[@id=\"message_573\"]/div/div[1]/div"));
 
-        Assert.assertTrue(removeMessage.isDisplayed());
+        System.out.println("The @Then block starts here");
+
+        for (WebElement eachParticipant : talkModulePage.participantsSettings) {
+            Assert.assertFalse(eachParticipant.isDisplayed());
+
+        }
+
+
+
+
     }
     //=========================================================
     @When("user clicks the chat settings")
@@ -148,8 +159,11 @@ public class TalkModule_stepDefinitions {
 
     @Then("the chat is deleted")
     public void the_chat_is_deleted() {
-        System.out.println("The chat was deleted");
+
+
+
     }
+
 
 
 }
