@@ -15,9 +15,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class TalkModule_stepDefinitions {
 
@@ -50,10 +47,6 @@ public class TalkModule_stepDefinitions {
     @When("user chooses participants")
     public void user_chooses_participants() {
 
-//        talkModulePage.employee1.click();
-//        talkModulePage.employee10.click();
-//        talkModulePage.employee100.click();
-//        talkModulePage.employee101.click();
 
 
         for (WebElement eachParticipant : talkModulePage.listOfParticipants) {
@@ -144,12 +137,12 @@ public class TalkModule_stepDefinitions {
     //=========================================================
     @When("user clicks the chat settings")
     public void user_clicks_the_chat_settings() {
-        talkModulePage.conversationSettings.click();
+
     }
 
     @When("user clicks delete conversation option")
     public void user_clicks_delete_conversation_option() {
-        talkModulePage.deleleteConversationOption.click();
+        talkModulePage.deleteConversationOption.click();
     }
 
     @When("user confirms deletion of the chat")
