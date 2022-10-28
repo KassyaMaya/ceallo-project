@@ -22,7 +22,7 @@
       Then participants are displayed on the menu bar
 
     @CEA-966
-    Scenario: User ser as a moderator can delete any participant
+    Scenario: User as a moderator can delete any participant
       Given user is in a group chat
       When user clicks the participant's settings and clicks remove participant
       Then participant is removed from the chat

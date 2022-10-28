@@ -123,11 +123,19 @@ public class TalkModule_stepDefinitions {
     @Then("participant is removed from the chat")
     public void participant_is_removed_from_the_chat() {
 
-        System.out.println("The @Then block starts here");
 
         for (WebElement eachParticipant : talkModulePage.participantsSettings) {
             Assert.assertFalse(eachParticipant.isDisplayed());
 
+        }
+
+        try{
+            for (WebElement eachParticipant : talkModulePage.participantsSettings) {
+                Assert.assertFalse(eachParticipant.isDisplayed());
+
+            }
+        } catch (NoSuchElementException e){
+            System.out.println("The participant was deleter or there are no participants in the chat");
         }
 
 
@@ -137,7 +145,9 @@ public class TalkModule_stepDefinitions {
     //=========================================================
     @When("user clicks the chat settings")
     public void user_clicks_the_chat_settings() {
-
+        for (WebElement eachSetting : talkModulePage.conversationSettings) {
+            eachSetting.click();
+        }
     }
 
     @When("user clicks delete conversation option")
