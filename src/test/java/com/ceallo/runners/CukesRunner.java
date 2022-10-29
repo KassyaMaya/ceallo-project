@@ -15,8 +15,8 @@ import org.junit.runner.RunWith;
 
         features = "src/test/resources/features",
         glue = "com/ceallo/step_definition",
-        dryRun = true,
-        tags = ""
+        dryRun = false,
+        tags = "@CEA-976"
 
 )
 

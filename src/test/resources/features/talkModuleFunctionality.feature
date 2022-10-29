@@ -40,5 +40,9 @@ Feature: Talk Module Functionality
     And user confirms deletion of the chat it
     Then the chat is deleted
 
-
+  @CEA-976
+  Scenario: User can send messages in the chat
+    Given user is in the group chat
+    When user types a message within the input box and sends it
+    Then the message is sent inside the chat
 

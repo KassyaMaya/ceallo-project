@@ -178,6 +178,33 @@ public class TalkModule_stepDefinitions {
 
     //=========================================================
 
+    @Given("user is in the group chat")
+    public void user_is_in_the_group_chat() {
+        talkModulePage.newGroupChat.click();
+    }
+
+
+    @When("user types a message within the input box and sends it")
+    public void userTypesAMessageWithinTheInputBoxAndSendsIt() {
+        talkModulePage.chatInputBox.click();
+        talkModulePage.chatInputBox.sendKeys(faker.bothify("##?-??##???????######-##?-??##???????######-##?-??##?"));
+        talkModulePage.sendMessageBtn.click();
+        talkModulePage.chatInputBox.sendKeys(faker.bothify("?????????????????????????????????????????????????????"));
+        talkModulePage.sendMessageBtn.click();
+        talkModulePage.chatInputBox.sendKeys(faker.bothify("#####################################################"));
+        talkModulePage.sendMessageBtn.click();
+    }
+
+    @Then("the message is sent inside the chat")
+    public void the_message_is_sent_inside_the_chat() {
+
+        List <WebElement> textInsideTheChat = Driver.getDriver().findElements(By.xpath("//div[contains(@id,'message')]"));
+
+        for (WebElement eachMessage : textInsideTheChat) {
+            Assert.assertTrue(eachMessage.isDisplayed());
+        }
+
+    }
 
 
 
