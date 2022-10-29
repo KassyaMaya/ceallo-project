@@ -51,6 +51,12 @@ public class TalkModulePage {
     @FindBy(xpath = "//button[@class='primary']")
     public WebElement confirmationBtn;
 
+    @FindBy (xpath = "//button[@class ='new-message-form__button submit icon-confirm-fade']")
+    public WebElement sendMessageBtn;
+
+    @FindBy (xpath = "//div[@class='new-message-form__advancedinput']")
+    public WebElement chatInputBox;
+
 
 
 
